@@ -1,0 +1,498 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{lipsum} 
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{color}
+\usepackage[svgnames]{xcolor}
+\usepackage[section]{placeins}
+\usepackage{here}
+\usepackage[Bjornstrup]{fncychap}
+\usepackage{pifont}
+\usepackage{tcolorbox}
+\usepackage{xcolor} 
+\usepackage{wasysym}
+\usepackage{dingbat}
+\pagestyle{fancy}
+\lhead{Génie Informatique}
+\chead{}
+\rhead{Projet Web}
+\lfoot{Mohammed Jaiti}
+\cfoot{\today}
+\rfoot{\thepage / \pageref{LastPage}}
+%\title{\textbf{Université Cadi Ayyad Marrakech \\ École Supérieure de Technologie - SAFI}  \\ \textsc{Département Génie Informatique \\ Rapport de Stage \\ AU :2018 /2019} }
+%\author{ Étudiant Stagiaire : Mohammed jaiti}
+%\date{\today}
+\begin{document}
+%\newpage
+%\maketitle
+\newpage
+\thispagestyle{empty} 
+\begin{center}
+\includegraphics[width=0.2\textwidth]{LogoEST.png}
+\end{center}
+\begin{center}
+\Large \textbf{Université Cadi Ayyad Marrakech}  \\
+\textit{École Supérieure de Technologie de SAFI}  \\
+\textit{Département Génie Informatique \\ AU : 2018/2019} \\ \vfill
+\Huge \textbf{Rapport du Projet WEB} \normalsize\\ \vfill
+\textit{Module 10 : Matière Technologie du WEB}  \\ \vfill Présenter et Soutenue par : Mohammed Jaiti  \\ \vfill 
+Sujet du projet: \\ 
+\rule{0.75\textwidth}{2pt}\vspace{0.9\baselineskip} \\
+\Large {{ \textbf{Création \& Conception d'un site WEB Dynamique en PHP} }}\normalsize \\
+\quad
+\\
+\Large \textit{Agence de voyage (Réservation en ligne) } \normalsize\vspace{0.5\baselineskip} \\
+\rule{0.75\textwidth}{2pt} \\ 
+\end{center}
+%Jury :
+%\begin{center}
+  % \begin{tabular}{ll}
+   %\hline\hline
+   %\emph{Rapporteurs} &  ?? \\
+   %\emph{Rapporteurs} & ?? \\
+   %\emph{Directeur} & ?? \\
+   %\emph{Examinateurs} & ?? \\
+   %\emph{Examinateurs}  & ??\\
+   %\emph{Examinateurs} & ?? \\
+    %\hline\hline
+   %\end{tabular}
+%\end{center}
+\vfill
+\textbf{Enseignant de la matière} : Mr.Jamal Bakkas \\ 
+\textbf{Etablissement } : UCA - Ecole Supérieure de  Technologie de SAFI \\
+\newpage
+\thispagestyle{empty} 
+\vfill
+\vfill
+\newpage
+\thispagestyle{empty}
+\hspace*{0mm}\vfill
+\begin{center}
+\includegraphics[scale=2,height =5 cm]{../imgs/ayat1.png} 
+\end{center}
+\vfill\hspace*{0mm}
+%\chapter*{Dédicaces}\addcontentsline{toc}{chapter}{Dédicaces}
+\chapter*{Remerciements}\addcontentsline{toc}{chapter}{Remerciements}
+Je tiens à remercier toutes les personnes qui ont contribué au succès de mon projet Web et qui m'ont aidé lors de la rédaction de ce rapport.
+\\
+\\
+Tout d'abord, j'adresse mes remerciements à Monsieur \textbf{Jamal Bakkas} mon professeur de la matière du technologie Web qui nous a aidé à comprendre et à savoir la programmation Web. 
+\\
+\\
+Je tiens à remercier vivement ma cousine \textit{Front-END développer} qui ma aidé beaucoup au niveau de la conception logique de mon projet Web.
+\\
+\\
+Je remercie également toutes les personnes qui m'ont conseillé. 
+\tableofcontents
+\listoffigures
+\newpage
+\chapter{Introduction} 
+Dans le cadre de notre \textbf{projet Web} concernant la matière du technologie Web , j'ai choisi la réalisation d'un site Web d'une \textbf{agence de voyage} pour facilité la réservation des vols , dans ce but j'ai crée une page spécifique pour la réservation en ligne on appliquant tout ce qu'on a vu dans les séances du TP du technologie Web.
+Le but est également d'apprendre à gérer un projet professionnel à une relation bien évidemment avec le Web et de bien apprendre à crée les sites Web sans soucis.
+Vous verrez dans ce projet l'importance du Langage \textbf{PHP} pour mettre un site Web dynamique , le site est basé notamment sur trois langages : \textbf{PHP} et \textbf{CSS/HTML} , \textbf{JS} , avec des ajouts supplémentaires des \textit{Frameworks} qui va donner une beauté à le site.
+Vous aller voir dans ce rapport le déroulement de la création et la conception de ce site avec les étapes qu'on a suit.
+Pour la réalisation de site on va parler du contexte générale de ce projet plus les outils de travail et les différents étapes du développement du site.
+à la deuxième partie on va traiter plus de détails concernant la conception du site et avant de clôturer le rapport on parlera des problèmes rencontré avec des solutions optimales , à la fin on fermera le rapport par une brève conclusion.
+\chapter{Présentation du projet}
+Dans ce chapitre, nous aborderons du contexte générale du projet ainsi le présentation du projet.
+\section{Contexte de projet}
+\begin{tcolorbox}
+En effet dans la matière du technologie Web un projet Web est considéré comme un examen qui sera noté .\\
+le choix du sujet est fait librement,pour moi j'ai choisi le sujet de \textbf{réservation en ligne} parce que est un sujet de moment , et aussi un sujet qui va me montrer l'intérêt de programmation Web .
+\end{tcolorbox}
+\section{Présentation du Projet}
+Pour assurer la réservation en ligne et pour réduire le temps c'est pour ça que j'ai créé un site Web de réservation du voyage dans le but
+d'enrichir mes compétence au niveau de programmation Web et aussi pourquoi pas de pouvoir crée encore une fois un site complet de même sorte.
+le site Web que j'ai créé est attractif, dynamique et interactif, autant pour son administration que pour son utilisation, est alors nécessaire au bon fonctionnement et à la communication interne et externe d’une telle structure.
+\chapter{Analyse et conception}
+Dans ce chapitre, nous allons voir les étapes de développement du site, ainsi des informations sur la conception (outils, environnement, langages, etc.), ainsi que les étapes nécessaires à la programmation et une focalisation globale sur la conception.
+\section{Les outils de travail}
+Avant de commencement,j'ai chercher à travailler sur un cahier charge qui va m'aidai à réalisé le projet , en faite le cahier charge est l'ensemble des idées que j'ai ramassé d'après les sites de réservation que j'ai vu dans le Net.
+\begin{enumerate}
+\item \textbf{Résumé d'idées:}
+\begin{enumerate}
+\item réalisation d'une page qui va contenir les informations de l'agence
+\item une page qui va contenir le formulaire de réservation
+\item + des pages auxiliaires.
+\end{enumerate}
+\end{enumerate}
+\subsection{Langages \& Framworks utilisé}
+Pour se faire réaliser le site , j'ai besoin des langages de \textbf{FrontEnd} , et De \textbf{BackEnd} (Client/Serveur),
+pour les langages de FrontEnd que j'ai utilisé ce sont :
+\begin{tcolorbox}
+\textbf{HTML/CSS} + \textbf{JavaScript}
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.5\textwidth]{HTML5_CSS_JavaScript.png}
+\end{center}
+\captionof{figure}{Langages FrontEND}
+\label{FrontEnd_Languages}
+\end{figure}
+\end{tcolorbox}
+Le langage de \textbf{BackEND} (\textit{PHP}) + SGBD (\textit{MySQL})
+\begin{tcolorbox}
+\textbf{PHP} + \textbf{MySQL} \\
+\textbf{PHP: Hypertext Preprocessor}, principalement utilisé pour produire des pages Web dynamiques via un serveur HTTP, PHP est un langage impératif orienté objet. \\
+\textbf{MySQL} est un système de gestion de bases de données relationnelles (SGBD-R). Il fait partie des logiciels de gestion de base de données les plus utilisés au monde.
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.5\textwidth]{PHPMysql.png}
+\end{center}
+\captionof{figure}{Langages BackEND}
+\label{BackEnd_Languages}
+\end{figure}
+\end{tcolorbox}
+Les \textit{Framworks} associé à le site:
+\begin{tcolorbox}
+Framworks de \textit{JavaScript} : \textbf{jQuery} pour facilité l'écriture de scripts côté client dans le code HTML .
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.2\textwidth]{jquery.jpg}
+\end{center}
+\captionof{figure}{Framwork JS:jQuery}
+\label{FJQ}
+\end{figure}
+\end{tcolorbox}
+\begin{tcolorbox}
+Framwork \textbf{Bootstrap (v3,v4)} qu'est une collection d'outils utiles à la création du design (graphisme, animation et interactions avec la page dans le navigateur ... etc. ...) de sites et d'applications web. C'est un ensemble qui contient des codes HTML et CSS, des formulaires, boutons, outils de navigation et autres éléments interactifs, ainsi que des extensions JavaScript en option. C'est l'un des projets les plus populaires sur la plate-forme de gestion de développement \textbf{GitHub}.
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.2\textwidth]{bootstrap.png}
+\end{center}
+\captionof{figure}{Framwork Bootstrap}
+\label{FB}
+\end{figure}
+\end{tcolorbox}
+\subsection{Environnement de travail }
+le logiciel de script que j'ai utilisé est le \textbf{Sublime Text 3} qu'est un éditeur de texte générique codé en C++ et Python
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.2\textwidth]{sublime.png}
+\end{center}
+\captionof{figure}{Sublime3}
+\label{Sublime}
+\end{figure}
+Ainsi Le \textbf{Xampp server} comme étant un serveur local pour gérer le site à l'aide de serveur \textbf{Apache} , Il possède également \textbf{PHPMyAdmin} pour gérer plus facilement nos bases de
+données.
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.18\textwidth]{xampp.png}
+\end{center}
+\captionof{figure}{xampp}
+\label{xampp}
+\end{figure}
+\section{Les différents étapes du développement}
+Dans cette section je vais vous montrer les principales phases qui ont été exploitées au niveau de développement du site.
+\subsection{Structuration \& programmation}
+Nous avons dans un premier temps mis en place la structure du site en créant les cinq \textit{folders} avec le fichier principale \textbf{index.php} \\
+le dossier \textcolor{red}{\textbf{reservation}} contient des fichiers en cascades ce sont : \textit{bootstrap-datepicker.css \& bootstrap-datepicker.js} pour concevoir la partie \textbf{Date} dans un champs de réservation , on va voir plus de détails dans les \textit{next sections} , (images (png,jpg)) ,fichier \textit{message.php} et page.php , \textit{reservationEnligne.php} ces fichiers sont élaborer pour mettre en place la page de réservation et aussi le fichier \textit{stylepage.css} qu'est quasiment utilisé dans toutes les pages avec quelques modifications .\\
+Pour le dossier \textcolor{red}{\textbf{Prix}} contient 3 fichiers , \textit{message2.php} qui affiche le prix de sélectionne-ment  du client et le fichier \textit{Prix.php} qui traite les objets sélectionné,ainsi un fichier \textit{Error.html} qui contient une \textbf{PNG} (Erreur) , il s'affichera au cas d'erreur.
+\\
+Le dossier \textcolor{red}{\textbf{Contact}} contient deux fichier : \textit{Contact.php} et \textit{Valide.html} , le fichier en php c'est pour gérer les commentaires et le fichier html à une même fonction que le fichier \textit{Error.html} dans le dossier Prix mais il s'affichera dans le cas où le message du client a été bien envoyé.! 
+\\
+Le dossier \textcolor{red}{\textbf{images}} contient les images qui sont utilisé dans le fichier \textit{index.php} \\
+Le dossier  \textcolor{red}{\textbf{Infos}} contient trois fichiers en html : \textit{SlideShow ,SlideShow1 ,SlideShow2} qui stockent une image , chaque fichier à une image spécifique , + un fichier en php : \textit{info.php} rassemble tout les fichiers en html pour se faire construire un autre design, le fichier \textit{info.php} c'est une direction pour le fichier de base \textit{index.php} dans la section du circuit.
+Voici une focalisation sur la structure proposé du site :
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=1.0\textwidth]{SDeSite.png}
+\end{center}
+\captionof{figure}{Structure de site}
+\label{Struct}
+\end{figure}
+\subsection{Design}
+les couleurs qui dominent dans le site sont :
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=1.0\textwidth]{ColorD.png}
+\end{center}
+\captionof{figure}{Design-Couleur}
+\label{Color}
+\end{figure}
+pour la couleur (1) est utilisé dans le \textbf{navbar} de la page principale du site :
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=1.0\textwidth]{navbar.png}
+\end{center}
+\captionof{figure}{navbar}
+\label{navbar}
+\end{figure}
+vous avez vu dans le \textbf{navbar} un logo , ce logo est créé à l'aide de site \textbf{canvas} qu'est l'un des sites conçu pour le design .
+Voila le logo de la page :
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.2\textwidth]{logoPage.png}
+\end{center}
+\captionof{figure}{Logo de site Web}
+\label{navbar}
+\end{figure}
+Pour la couleur (2) est utilisé pour les fonts et dans les balises <\textbf{H}>
+Et aussi dans le <\textbf{footer}> :
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.6\textwidth]{footer.png}
+\end{center}
+\captionof{figure}{Footer de site en \#303030}
+\label{footer}
+\end{figure}
+Pour la couleur (3) est utilisé dans les pages extérieurs comme la page de réservation et la page d'informations de circuits (infos-circuit) surtout dans les \textbf{panels}, voici un aperçu :
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.8\textwidth]{OrangeCol.png}
+\end{center}
+\captionof{figure}{Couleur \#F4511E}
+\label{orange}
+\end{figure}
+\subsubsection{le site en cadre adaptatif}
+\begin{tcolorbox}[fonttitle=\sffamily\bfseries\large,title= le site en cadre adaptatif (responsive)]
+j'ai met le site en cadre adaptatif ( Responsive design) qui va offrir une consultation confortable même pour des supports différents. L'utilisateur peut ainsi consulter site web à travers une large gamme d'appareils (moniteurs d'ordinateur, smartphone, tablettes, télévision…) avec le même confort visuel et sans avoir recours au défilement horizontal ou au zoom avant/arrière sur les appareils tactiles notamment, manipulations qui peuvent parfois dégrader l'expérience utilisateur, tant en lecture qu'en navigation.
+\end{tcolorbox}
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=1.0\textwidth]{RespnsiveSite.png}
+\end{center}
+\captionof{figure}{le Site en cadre adaptatif}
+\label{responsive}
+\end{figure}
+Le target spécifique pour réaliser cette technique c'est \textbf{\textit{@media}} en Css:
+voici un exemple de code d'après mon site
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.5\textwidth]{@media.png}
+\end{center}
+\captionof{figure}{Exemple @media}
+\label{@media}
+\end{figure}
+Et aussi pour faire une animation en passant par une progression d'accélération pour les pages , on a utilisé des classes (slide , slideanim) avec l'aide du regèle \textbf{\textit{@keyframes }} Voila un bout de code en Css utilisé dans le site.
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.8\textwidth]{slideetkey.png}
+\end{center}
+\captionof{figure}{Exemple @keyframes / slideanim}
+\label{@frame}
+\end{figure}
+\chapter{Réalisation technique}
+Dans cette partie ,nous allons voir l'aspect technique au niveau de la réalisation de ce projet .
+\section{La conception fonctionnelle des pages}
+\begin{tcolorbox}
+Avant de détailler les fonctionnalité des pages , nous voulons montrer une structuration qui va nous aidé a savoir la page en détails selon ses champs.
+\end{tcolorbox}
+Voila la structure de la première page (principale):
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.7\textwidth]{index.png}
+\end{center}
+\captionof{figure}{la page principale de site}
+\label{index}
+\end{figure}
+La page principales est divisé en 5 sections , chaque section à une fonctionnalité spécifique , Pour la section (\textbf{About}) c'est pour donner une définition sur l'agence et ses rôles.
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.8\textwidth]{about.png}
+\end{center}
+\captionof{figure}{Section About}
+\label{about}
+\end{figure}
+La section (\textbf{Services}) c'est juste des \textit{glyphicon} en \textbf{bootstrap} pour montrer les offres qui donne l'agence a ses clients .
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.8\textwidth]{service.png}
+\end{center}
+\captionof{figure}{Section Services}
+\label{service}
+\end{figure}
+La section \textbf{Circuit} affiche trois \textit{row} (Envie de s'evadie,Partez en famille , partir seule) ce sont des (\textit{Options-Circuits}) de l'agence de voyage donné à ses clients.
+dans chaque \textbf{row} ,il y a une bouton qui redirige l'utilisateur vers une autre page qui contient plus détails sur (\textit{l'Option-circuit}) (infos-circuit).
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.8\textwidth]{circuit.png}
+\end{center}
+\captionof{figure}{Section Circuit}
+\label{circuit}
+\end{figure}
+à l'issue de cette section on trouve en dessous des aimantations des proverbes concernant le voyage.pour réalisé cette animations j'ai fait une <\textbf{div}> avec la classe "\textit{carousel-inner}" , role="\textit{listbox}" , la classe est définie dans le fichier \textit{bootstrap.css}. je vous montrer un bout de code qui va montrer le contrôle des slides (next/previous) pour ces proverbes.
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.8\textwidth]{contorleSlide.png}
+\end{center}
+\captionof{figure}{Contrôle des slides}
+\label{Cs}
+\end{figure}
+La section (\textbf{Tarif}) est divisé en deux partie , La première affiche les prix des options de voyage (Basic,Pro,Premium) , La deuxième est une forme contient une <\textbf{div}> qui contient des champs (Ville départ ,Ville d'arriver,Option de voyage,Nombre de place) pour le but de facilité a l'utilisateur de chercher le prix qu'il voulait après qu'il se cliquer sur une bouton qui va le rediriger vers une page qui affiche les résultats de son sélectionne-ment en transformant ses choix (<\textbf{select}> \& <\textbf{option value=" " }>) à l'aide de \textbf{PHP}.
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.8\textwidth]{tarif.png}
+\end{center}
+\captionof{figure}{Section tarif}
+\label{tarif}
+\end{figure}
+\section*{la section tarif \& \textbf{PHP}}
+\begin{tcolorbox}
+la balise <\textbf{form}> relier avec une page "Prix.php" pour générer le choix d'utilisateur (action="Prix/Prix.php") appliquant la méthode \textbf{POST} pour récupérer les données entrant par l'utilisateur.
+dans la page Prix.php j'ai traiter les données entrant avec l'utilisation d'une table (\textit{prixvoyage}) qui contient des prix Unitaires associé à chaque ville , nous allons voir dans le chapitre 5 les problème rencontré à ce niveau.\\
+Pour récupérer le prix d'après les valeurs entrant , on a fait des testes sur les valeurs de balise <\textbf{select}> , voici l'organigramme suivant montre l'algorithme qu'on a suit pour extraire le prix d'une voyage sélectionné \\
+le MCD du table (\textit{prixvoyage}):(ville,PrixU)
+\end{tcolorbox}
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.6\textwidth]{TarifOrg.png}
+\end{center}
+\captionof{figure}{organigramme illustre l'algorithme de recherche de prix pour la section tarif}
+\label{tarifOrg}
+\end{figure}
+Les résultats sont affiché sur une autre page.(\textit{message2.php})
+\begin{itemize}
+\item les étapes que j'ai suit pour crée cette section au niveau \textbf{PHP}
+\begin{enumerate}
+\item traitement de deux requêtes qui font une sélection du PrxiU a partir de la table \textit{prixvoyage} avec une condition (Ville='ville Départ' pour Query1 )(Ville='ville Arriver' pour Query2).
+\item des testes sur les options pour traiter le prix
+\item redirection vers une autre page (\textit{message.php})
+\end{enumerate}
+\end{itemize}
+Pour la section (\textbf{Contact}) , j'ai crée une forme contenir des champs (Nom , Email, Comment ) + une boutoun (submit) [Envoyé] voila la figure suivante montre cette section.
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.8\textwidth]{contact.png}
+\end{center}
+\captionof{figure}{Section Contact}
+\label{contact}
+\end{figure}
+\begin{itemize}
+\item les étapes que j'ai suit pour crée cette section au niveau \textbf{PHP}
+\begin{enumerate}
+\item création d'une table dans la base de données qui stocke les information remplissent .
+\item connexion avec la base de données à l'aide du classe \textit{\textbf{PDO}}
+\item insertion des champs qui sont remplissent par l'user.
+\end{enumerate}
+\end{itemize}
+\section*{La page de réservation}
+Voila les étapes qu'on a suit pour crée cette page :
+\begin{itemize}
+	\item \textbf{la partie design}
+	\begin{enumerate}
+	\item au primer lieu , j'ai crée un formulaire avec la balise <\textbf{form}> contient ces champs là (Ville de départ,Ville d'arrivée,Option de voyage ,Nombre de palces,Date de voyage,Heures,Nom,Email,Password) +une (\textit{form check}) [accepter les règles ] + une bouton [valide] , ce formulaire est crée à l'aide de \textbf{bootstrap}.
+	\item dans la base de données les champs sont insérer dans la table "\textbf{reservation}" par le même ordre dans le formulaire
+	\item le champs du date est crée par datepicker qu'est une classe dans \textbf{js} pour facilité le choix de date. \\
+	voila un aperçu a ce formulaire:
+	\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.9\textwidth]{reservation.png}
+\end{center}
+\captionof{figure}{Page réservation}
+\label{contact}
+\end{figure}
+	\end{enumerate}
+	\item \textbf{la partie PHP}
+	\begin{enumerate}
+	\item connexion avec la base de donnée.
+	\item insertion des données dans la table "reservation".
+	\item traitement sur la valeur prix , dans ce cas on a utilisé l'algorithme de prix voir \ref{tarifOrg}.
+	\item affichage de résultat est rediriger vers une page (\textit{message.php})
+	\end{enumerate}
+\end{itemize}
+\section{Vision sur la réservation en ligne}
+\begin{tcolorbox}
+Dans cette section nous voulons montrer les résultats obtenu pour une réservation + la gestion de la base de donnée .
+\end{tcolorbox}
+\subsection{La gestion de la base de donnée}
+A ce niveau j'ai crée une base de donnée nommé ''\textbf{levoyagelibre}'' , bien évidement toutes les tables de la phases une sont inclus dans cette base de données.\\
+$\Rightarrow$ le langage utilisé pour crée les requêtes est : \textbf{SQL}
+\subsection{Résultats obtenus}
+Après la réservation en ligne les résultats sont affichés dans une page  spécifique contient :
+\begin{itemize}
+\item date départ
+\item date d'arriver
+\item nombre de place
+\item option de voyage
+\item le prix total du voyage 
+\\Voila un aperçu de tout ça:
+\begin{figure}[H]
+\begin{center}
+\centering
+\includegraphics[width=0.9\textwidth]{reslutat.png}
+\end{center}
+\captionof{figure}{Exemple de résultat de réservation}
+\label{Result}
+\end{figure}
+\end{itemize}
+La confirmation de réservation est fait si le client verser le prix designer dans le compte bancaire de l'agence de voyage , il y a un suivi par l'administration pour chaque réservation .
+\section{Hébergement}
+Un hébergeur web (ou hébergeur internet) est une entité ayant pour vocation de mettre à disposition des internautes des sites web conçus et gérés par des tiers.
+
+Il donne ainsi accès à tous les internautes au contenu déposé dans leurs comptes par les webmestres souvent via un logiciel FTP ou un gestionnaire de fichiers. Pour cela, il maintient des ordinateurs allumés et connectés 24 heures sur 24 à Internet (des serveurs web par exemple) par une connexion à très haut débit (plusieurs centaines de Mb/s), sur lesquels sont installés des logiciels : serveur HTTP (souvent Apache), serveur de messagerie, de base de données...\\
+Bien évidement mon site a été héberger avec succès à l'aide d'un hébergeur web (\textit{000webhost})
+\subsection{Choix de domaine}
+j'ai choisi un domaine pour mon site , "levoyagelibre.ml" ce domaine est free durant 12 mois , il y a d'autres types (.com ,.ma....) mais avec des critères spécifiques , le but de mettre un domaine avec un hébergement c'est juste pour suivre toutes les étapes qu'il suit un développeur(\textit{full-stack}).\\
+pour voir le site cliquer sur ce lien là :\url{http://www.levoyagelibre.ml}
+\subsection{Configuration de serveur DNS}
+Lorsqu'un visiteur demande une page à son navigateur Web, celui-ci interroge des serveurs DNS pour connaître l'adresse IP du serveur hébergeant ce site. Dès qu'il obtient la réponse, le navigateur va interroger ce serveur et lui demander cette page. Le serveur web va alors chercher la page sur son ou ses disques durs (s'il s'agit d'une page statique), ou la fabriquer à l'aide d'un script (s'il s'agit d'une page dynamique), puis l'envoyer au navigateur, qui l'affiche sur l'écran du visiteur.
+
+Il peut être important de localiser l'endroit où l'hébergeur a ses serveurs. La plupart des moteurs de recherche se basent aussi sur la localisation des serveurs afin d'effectuer le référencement d'un site Web.
+tout cela j'ai l'ai traiter on configurant le DNS du domaine , on ajoutant le nom serveur d'hébergeur .
+\chapter{Problème rencontrés \& Optimisation}
+Dans ce chapitre nous allons montrer quelques difficultés au niveau de la programmation de ce site et aussi des problèmes rencontrés avec des propositions optimales qui va résoudre ces problèmes là.
+\section{Problèmes rencontrés}
+\begin{tcolorbox}
+Parmi les problèmes que j'ai rencontré lors de la création de ce site est le problème de paiement lorsque un client à bien complété le formulaire, pour afficher à lui une page de paiement avec le choix de versement du prix soit en \textit{Pypal} soit avec une carte bancaire ce n'est pas facile parce que un système de paiement a besoin de sécurité pour ne pas tomber dans des problèmes avec les clients.
+\end{tcolorbox}
+\begin{tcolorbox}
+le second problème est exister au niveau du calcule de prix , l'algorithme que j'ai fait seulement pour simplifier les choses , parce que il faut une classe qui va calculer la distance en KM entre la ville de départ et la ville d'arriver , imaginer avec 17 ville il faut calculer la longueur pour chaque ville ($X \times 17$),après tout ça il faut ajouter un prix pour chaque distance calculer,ce n'est as facile du tout.
+\end{tcolorbox}
+\begin{tcolorbox}
+Ainsi la difficulté au niveau d'utilisation de la classe (\textbf{PHPmailer}) pour  traiter l'envoi des massages sur la boite mail de site , les problèmes existent au niveau de la configuration .
+\end{tcolorbox}
+\section{Proposition d'amélioration}
+Pour le système de paiement , l'idée que j'ai est de faire une page associé à une base de donnée qui stocke des ID des clients qui fait une réservation , pour chaque client va prendre une ID en temps réel après la réservation ,en suite en le redirige vers une page qui va contenir un système de paiement spécifier à notre compte bancaire , pour verser l'argent on fait des teste sur l'ID qu'il va entré par le client , si l'ID n'est pas convenable tout a fait l'opération est refusé , sinon le client va verser le prix designer par sa carte bancaire , (avec \textit{Pypal} on va rencontrer des problèmes).
+\\
+Pour le calcule de prix , on va crée une classe en \textbf{PHP} avec une fonctions spécifique qui va prendre des arguments sont (ville départ , ville d'arriver , option ,nombre de place ) et qui va retourner le prix exact . les instructions au niveau de la fonction suivent un algorithme mathématique qui va calculer la longueur entre deux villes séparer (\textbf{\textit{théorie des graphes}}) 
+\chapter{Conclusion}
+Tout d'abord, ce projet nous a permis d'appliquer les connaissances que nous avons acquises dans les TPs, telles que la modélisation, les différents langages de programmation (HTML/CSS \& PHP) .\\
+Le projet nous apporte une idée sur l'organisation dans le monde professionnel.
+j'aimerais beaucoup par la suite d'essayer d'utiliser des \textit{Framewoks} du PHP ( \textit{laravel , symphony}) dans un autre projet .
+\chapter{Annexe}
+\section{WeBibliographie}
+\textbf{Les sources d’information :} \\
+\begin{itemize}
+\item ULLMAN Lary, PHP \& MySql : Développement de sites web. Paris : Campus Press, 2004, 408p.
+\item CHU Nicolas. Réussir un projet de site web, 3ème éd. Paris : Eyrolles, 2005, 242p.
+\item \url{https://www.w3schools.com} 
+\item \url{https://bootstrap-datepicker.readthedocs.io}
+\item \url{https://getbootstrap.com/docs/4.1/getting-started/introduction/}
+\item \url{http://www.manuelphp.com/}
+\end{itemize}
+
+\end{document}
